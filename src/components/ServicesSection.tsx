@@ -45,6 +45,20 @@ const services = [
     description: "Aadhaar enrollment, update, correction and Aadhaar-PAN linking services.",
     color: "bg-navy-light text-primary",
   },
+  {
+    icon: Building2,
+    title: "Business Registration",
+    titleHi: "व्यापार पंजीकरण",
+    description: "Complete business registration including company incorporation and MSME registration.",
+    color: "bg-saffron-light text-secondary",
+  },
+  {
+    icon: MessageSquare,
+    title: "Tax Consultation",
+    titleHi: "कर परामर्श",
+    description: "Expert tax consultation for individuals and businesses with personalized advice.",
+    color: "bg-india-green-light text-accent",
+  },
 ];
 
 const ServicesSection = () => {
