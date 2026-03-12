@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { Calculator } from "lucide-react";
+import { Calculator, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const serviceRates: Record<string, number> = {
-  "GST Registration": 1500,
-  "GST Return Filing (Monthly)": 800,
-  "GST Return Filing (Quarterly)": 2000,
-  "Income Tax Return (Salaried)": 500,
-  "Income Tax Return (Business)": 1500,
-  "TDS Filing": 1000,
-  "PAN Card (New)": 200,
-  "PAN Card (Correction)": 150,
-  "Aadhaar Update": 100,
-  "Aadhaar-PAN Linking": 100,
-};
+const services = [
+  "GST Registration",
+  "GST Return Filing (Monthly)",
+  "GST Return Filing (Quarterly)",
+  "Income Tax Return (Salaried)",
+  "Income Tax Return (Business)",
+  "TDS Filing",
+  "PAN Card (New/Correction)",
+  "Aadhaar Update/Linking",
+  "Website Design",
+  "Logo Design",
+  "Banner/Visiting Card Design",
+];
 
 const TaxCalculator = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -23,54 +25,54 @@ const TaxCalculator = () => {
     );
   };
 
-  const total = selected.reduce((sum, s) => sum + (serviceRates[s] || 0), 0);
-
   return (
     <section className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-3">
             <Calculator className="inline h-4 w-4 mr-1" />
-            Instant Calculator
+            Service Selector
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Estimate Your Cost
+            Select Your Services
           </h2>
-          <p className="text-muted-foreground">Select services to get an instant cost estimate</p>
+          <p className="text-muted-foreground">Choose the services you need and contact us for a quote</p>
         </div>
 
         <div className="max-w-2xl mx-auto bg-card rounded-2xl border border-border shadow-card p-6 md:p-8">
           <div className="grid sm:grid-cols-2 gap-3 mb-8">
-            {Object.entries(serviceRates).map(([service, rate]) => (
+            {services.map((service) => (
               <button
                 key={service}
                 onClick={() => toggleService(service)}
-                className={`flex items-center justify-between px-4 py-3 rounded-lg border text-left text-sm font-medium transition-all ${
+                className={`flex items-center px-4 py-3 rounded-xl border text-left text-sm font-medium transition-all duration-200 ${
                   selected.includes(service)
                     ? "border-secondary bg-secondary/10 text-foreground shadow-sm"
                     : "border-border bg-background text-muted-foreground hover:border-secondary/50"
                 }`}
               >
-                <span>{service}</span>
-                <span className="font-semibold text-foreground">₹{rate}</span>
+                <span className={`w-4 h-4 rounded-full border-2 mr-3 shrink-0 transition-colors ${
+                  selected.includes(service) ? "bg-secondary border-secondary" : "border-muted-foreground/40"
+                }`} />
+                {service}
               </button>
             ))}
           </div>
 
           <div className="flex items-center justify-between pt-6 border-t border-border">
             <div>
-              <p className="text-sm text-muted-foreground">Estimated Total</p>
-              <p className="text-3xl font-bold text-foreground">
-                ₹{total.toLocaleString("en-IN")}
+              <p className="text-sm text-muted-foreground">
+                {selected.length} service{selected.length !== 1 ? "s" : ""} selected
               </p>
-              <p className="text-xs text-muted-foreground mt-1">*Prices are approximate & may vary</p>
+              <p className="text-xs text-muted-foreground mt-1">Contact us for pricing details</p>
             </div>
-            <a
-              href="/contact"
-              className="px-6 py-3 rounded-lg bg-saffron-gradient text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-saffron-gradient text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
             >
               Get Quote
-            </a>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>
