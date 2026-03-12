@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, FileText, ArrowRight } from "lucide-react";
+import { Shield, FileText, ArrowRight, CheckCircle } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -36,22 +36,32 @@ const HeroSection = () => {
               Services
             </h1>
 
-            <p className="text-xl md:text-2xl font-hindi opacity-90 mb-8">
+            <p className="text-xl md:text-2xl font-hindi opacity-90 mb-6">
               भरोसेमंद, कानूनी और पारदर्शी सेवाएँ
             </p>
 
-            <p className="text-lg opacity-80 mb-10 max-w-xl mx-auto">
-              Your one-stop solution for GST, Income Tax, PAN, Aadhaar &
-              all government services. Fast, affordable & hassle-free.
+            <p className="text-lg opacity-80 mb-8 max-w-xl mx-auto">
+              Your one-stop solution for GST, Income Tax, PAN, Aadhaar,
+              Website Design & all government services.
             </p>
+
+            {/* Quick trust points */}
+            <div className="flex flex-wrap justify-center gap-4 mb-10 text-sm opacity-80">
+              {["Fast Processing", "Government Authorized", "100% Secure"].map((item) => (
+                <div key={item} className="flex items-center gap-1.5">
+                  <CheckCircle className="h-4 w-4 text-secondary" />
+                  {item}
+                </div>
+              ))}
+            </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to="/pricing"
+                to="/services"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-saffron-gradient text-primary-foreground font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
               >
                 <FileText className="h-5 w-5" />
-                Get Estimate
+                Our Services
               </Link>
               <Link
                 to="/contact"
@@ -63,7 +73,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Trust Indicators */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,10 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Shield, Users, Award, Target, Zap, Globe, Heart, FileText, CreditCard, Fingerprint, BarChart3, CheckCircle, ArrowRight } from "lucide-react";
+import { Shield, Users, Award, Target, Zap, Globe, Heart, FileText, CreditCard, Fingerprint, BarChart3, CheckCircle, ArrowRight, Building2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import leadersBudget from "@/assets/leaders-budget.webp";
 import leadersEvent from "@/assets/leaders-event.jpg";
+import logo from "@/assets/logo.jpg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
@@ -17,24 +18,9 @@ const About = () => (
   <div className="min-h-screen bg-background">
     <Header />
     <main>
-      {/* Hero Banner with Leader Images */}
-      <section className="relative overflow-hidden bg-hero-gradient text-primary-foreground py-20 md:py-28">
-        {/* Background leader images with blur/fade */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={leadersBudget}
-            alt="Government leadership supporting Digital India"
-            className="absolute left-0 top-0 w-1/2 h-full object-cover opacity-[0.12] blur-[2px]"
-          />
-          <img
-            src={leadersEvent}
-            alt="Government leadership at national event"
-            className="absolute right-0 top-0 w-1/2 h-full object-cover opacity-[0.12] blur-[2px]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[hsl(215_70%_22%/0.6)] to-[hsl(215_70%_22%/0.9)]" />
-        </div>
-
-        <div className="container mx-auto px-4 text-center relative z-10">
+      {/* Hero */}
+      <section className="bg-hero-gradient text-primary-foreground py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
           <motion.div {...fadeUp}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/20 text-sm font-semibold mb-4 backdrop-blur-sm">
               About Us
@@ -45,6 +31,69 @@ const About = () => (
             </p>
             <p className="text-base font-hindi opacity-70 mt-2">भारत की डिजिटल अर्थव्यवस्था का समर्थन</p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Logo + Leader Photos Section */}
+      <section className="py-14 md:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div {...fadeUp} className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Government of India – Tax Service Initiative</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Supporting India's mission for transparent, accessible and digital tax services for every citizen</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center"
+            >
+              <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border-2 border-secondary/30 shadow-card-hover bg-card p-2">
+                <img src={logo} alt="Tax Suvidha Jan Kendra Logo" className="w-full h-full object-contain rounded-xl" />
+              </div>
+              <p className="mt-3 text-sm font-semibold text-foreground">Tax Suvidha Jan Kendra</p>
+              <p className="text-xs text-muted-foreground font-hindi">टैक्स सुविधा जन केंद्र</p>
+            </motion.div>
+
+            {/* PM Photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex flex-col items-center"
+            >
+              <div className="relative w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-card-hover">
+                <img src={leadersBudget} alt="Hon'ble Prime Minister and Finance Minister of India" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary)/0.6)] to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <p className="text-xs font-semibold text-primary-foreground">Hon'ble Leadership</p>
+                  <p className="text-[10px] text-primary-foreground/80">Government of India</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* FM Photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col items-center"
+            >
+              <div className="relative w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-card-hover">
+                <img src={leadersEvent} alt="Hon'ble Prime Minister and Finance Minister at national event" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary)/0.6)] to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <p className="text-xs font-semibold text-primary-foreground">Digital India Initiative</p>
+                  <p className="text-[10px] text-primary-foreground/80">Building a Digital Nation</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -73,7 +122,7 @@ const About = () => (
         </div>
       </section>
 
-      {/* Mission, Trust, Digital Support, Fast Processing */}
+      {/* Core Values */}
       <section className="py-16 bg-muted/30 chakra-bg">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-12">
@@ -85,34 +134,10 @@ const About = () => (
 
           <div className="grid sm:grid-cols-2 gap-6">
             {[
-              {
-                icon: Target,
-                title: "Mission of Tax Suvidha Jan Kendra",
-                titleHi: "हमारा मिशन",
-                desc: "To make tax compliance simple, affordable and accessible for every Indian citizen and business. We bridge the gap between complex government processes and common people.",
-                color: "bg-saffron-light text-secondary",
-              },
-              {
-                icon: Globe,
-                title: "Government Digital Service Support",
-                titleHi: "डिजिटल सेवा समर्थन",
-                desc: "We support the Digital India initiative by providing online tax filing, e-verification, digital document processing and technology-driven government services.",
-                color: "bg-navy-light text-primary",
-              },
-              {
-                icon: Heart,
-                title: "Customer Trust & Transparency",
-                titleHi: "विश्वास और पारदर्शिता",
-                desc: "Your data is encrypted and secure. We follow strict data protection guidelines and maintain complete transparency in pricing, processing and service delivery.",
-                color: "bg-india-green-light text-accent",
-              },
-              {
-                icon: Zap,
-                title: "Fast Online Processing",
-                titleHi: "तेज़ ऑनलाइन प्रोसेसिंग",
-                desc: "Get your applications processed quickly with our streamlined online system. Track your application status in real-time and receive instant updates.",
-                color: "bg-saffron-light text-secondary",
-              },
+              { icon: Target, title: "Mission of Tax Suvidha Jan Kendra", titleHi: "हमारा मिशन", desc: "To make tax compliance simple, affordable and accessible for every Indian citizen and business. We bridge the gap between complex government processes and common people.", color: "bg-saffron-light text-secondary" },
+              { icon: Globe, title: "Government Digital Service Support", titleHi: "डिजिटल सेवा समर्थन", desc: "We support the Digital India initiative by providing online tax filing, e-verification, digital document processing and technology-driven government services.", color: "bg-navy-light text-primary" },
+              { icon: Heart, title: "Customer Trust & Transparency", titleHi: "विश्वास और पारदर्शिता", desc: "Your data is encrypted and secure. We follow strict data protection guidelines and maintain complete transparency in pricing, processing and service delivery.", color: "bg-india-green-light text-accent" },
+              { icon: Zap, title: "Fast Online Processing", titleHi: "तेज़ ऑनलाइन प्रोसेसिंग", desc: "Get your applications processed quickly with our streamlined online system. Track your application status in real-time and receive instant updates.", color: "bg-saffron-light text-secondary" },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -134,25 +159,23 @@ const About = () => (
         </div>
       </section>
 
-      {/* Key Services Highlight */}
+      {/* Key Services */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div {...fadeUp} className="text-center mb-12">
-            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-3">
-              Our Key Services
-            </span>
+            <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-3">Our Key Services</span>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">Comprehensive Tax & Government Services</h2>
-            <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Complete support for PAN Card, ITR Filing, GST, Aadhaar and more</p>
+            <p className="text-muted-foreground mt-2">PAN Card, ITR Filing, GST, Aadhaar and more</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {[
               { icon: CreditCard, title: "PAN Card Services", titleHi: "पैन कार्ड" },
               { icon: FileText, title: "ITR Filing", titleHi: "आयकर रिटर्न" },
-              { icon: BarChart3, title: "GST Registration & Filing", titleHi: "जीएसटी सेवाएँ" },
+              { icon: BarChart3, title: "GST Services", titleHi: "जीएसटी सेवाएँ" },
               { icon: Fingerprint, title: "Aadhaar Services", titleHi: "आधार सेवाएँ" },
               { icon: Shield, title: "TDS Returns", titleHi: "टीडीएस रिटर्न" },
-              { icon: Globe, title: "Business Registration", titleHi: "व्यापार पंजीकरण" },
+              { icon: Building2, title: "Business Registration", titleHi: "व्यापार पंजीकरण" },
             ].map((service, i) => (
               <motion.div
                 key={service.title}
@@ -170,12 +193,8 @@ const About = () => (
           </div>
 
           <motion.div {...fadeUp} className="text-center mt-10">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-saffron-gradient text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
-            >
-              View All Services
-              <ArrowRight className="h-4 w-4" />
+            <Link to="/services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-saffron-gradient text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
+              View All Services <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </div>
