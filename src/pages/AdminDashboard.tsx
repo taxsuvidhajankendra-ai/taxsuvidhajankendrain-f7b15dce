@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { LogOut, Download, RefreshCw, FileText } from "lucide-react";
+import { LogOut, Download, RefreshCw, FileText, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { Tables } from "@/integrations/supabase/types";
 
 type Submission = Tables<"submissions">;
@@ -95,6 +96,9 @@ const AdminDashboard = () => {
           <button onClick={loadSubmissions} className="p-2 rounded-lg border border-input hover:bg-muted transition-colors" title="Refresh">
             <RefreshCw className="h-4 w-4" />
           </button>
+          <Link to="/admin/talk-with-customer" className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground font-medium text-sm hover:opacity-90 transition-opacity">
+            <Users className="h-4 w-4" /> Talk With Customer
+          </Link>
           <button onClick={exportCSV} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-accent-foreground font-medium text-sm hover:opacity-90 transition-opacity">
             <Download className="h-4 w-4" /> Export CSV
           </button>

@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       submissions: {
         Row: {
+          booking_date: string | null
           city: string
           consent: boolean
           created_at: string
@@ -26,8 +27,10 @@ export type Database = {
           id: string
           mobile_number: string
           service: Database["public"]["Enums"]["service_type"]
+          status: string
         }
         Insert: {
+          booking_date?: string | null
           city: string
           consent?: boolean
           created_at?: string
@@ -38,8 +41,10 @@ export type Database = {
           id?: string
           mobile_number: string
           service: Database["public"]["Enums"]["service_type"]
+          status?: string
         }
         Update: {
+          booking_date?: string | null
           city?: string
           consent?: boolean
           created_at?: string
@@ -50,6 +55,7 @@ export type Database = {
           id?: string
           mobile_number?: string
           service?: Database["public"]["Enums"]["service_type"]
+          status?: string
         }
         Relationships: []
       }

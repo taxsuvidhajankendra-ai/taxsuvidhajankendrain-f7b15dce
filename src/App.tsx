@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import TalkWithCustomer from "./pages/TalkWithCustomer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import LiveChat from "./components/LiveChat";
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/talk-with-customer" element={<TalkWithCustomer />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
