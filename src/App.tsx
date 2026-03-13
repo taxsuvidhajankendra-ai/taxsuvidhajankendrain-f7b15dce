@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import TalkWithCustomer from "./pages/TalkWithCustomer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import LiveChat from "./components/LiveChat";
 
