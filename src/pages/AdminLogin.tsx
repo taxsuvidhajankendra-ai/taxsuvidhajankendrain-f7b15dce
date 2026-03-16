@@ -6,8 +6,7 @@ import { Lock, Mail } from "lucide-react";
 
 const ALLOWED_ADMIN_EMAILS = [
   "taxsuvdhajankendra@gmail.com",
-  "infotaxsuvdhajankendra@gmail.com",
-  "admin@taxsolutions.com", // test admin
+  "infotaxsuvidhajankendra@gmail.com",
 ];
 
 const AdminLogin = () => {
