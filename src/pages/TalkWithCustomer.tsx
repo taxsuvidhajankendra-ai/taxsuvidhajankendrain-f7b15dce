@@ -215,9 +215,12 @@ const TalkWithCustomer = () => {
         {/* Workspace Header */}
         <header className="bg-card border-b border-border px-4 md:px-6 py-3 sticky top-0 z-10">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
-            <button onClick={() => setSelectedSubmission(null)} className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              <ChevronLeft className="h-4 w-4" /> Back
-            </button>
+            <div className="flex items-center gap-3">
+              <button onClick={() => setSelectedSubmission(null)} className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                <ChevronLeft className="h-4 w-4" /> Back
+              </button>
+              <img src={logo} alt="Tax Suvidha" className="h-8 w-8 rounded-lg object-contain hidden sm:block" />
+            </div>
             <div className="flex items-center gap-3">
               <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${statusCfg.bg} ${statusCfg.text}`}>
                 <StatusIcon className="h-3.5 w-3.5" /> {s.status}
