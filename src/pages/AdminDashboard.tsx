@@ -27,11 +27,12 @@ const AdminDashboard = () => {
     const { data: roleData } = await supabase
       .from("user_roles")
       .select("role")
-      .eq("user_id", user.id)
-      .eq("role", "admin")
-      .maybeSingle();
+      .eq("user_id", user.id);
 
-    if (!roleData) {
+    const roles = (roleData || []).map((r) => r.role);
+    const hasAccess = roles.some((r) => ["admin", "owner", "worker"].includes(r));
+
+    if (!hasAccess) {
       await supabase.auth.signOut();
       toast.error("Access denied.");
       navigate("/admin");
