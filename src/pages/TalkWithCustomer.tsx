@@ -6,8 +6,9 @@ import {
   LogOut, RefreshCw, Phone, MessageCircle, CheckCircle2,
   Users, Clock, FileText, Filter, Send, Download,
   CreditCard, ChevronLeft, BarChart3, Eye, Inbox,
-  ArrowUpRight, UserCheck, AlertCircle
+  ArrowUpRight, UserCheck, AlertCircle, LayoutDashboard
 } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 interface Submission {
   id: string;
