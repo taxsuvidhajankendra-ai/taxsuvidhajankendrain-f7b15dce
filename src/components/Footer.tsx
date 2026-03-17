@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Facebook, Instagram } from "lucide-react";
+import { Mail, Phone, Facebook, Instagram, Shield } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
