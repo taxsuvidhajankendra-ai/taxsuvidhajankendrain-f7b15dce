@@ -81,9 +81,12 @@ const Footer = () => {
 
         <div className="mt-12 pt-6 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs opacity-60">
           <p>© 2026 Tax Suvidha Jan Kendra. All Rights Reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:opacity-100">Privacy Policy</Link>
             <Link to="/terms" className="hover:opacity-100">Terms & Conditions</Link>
+            <Link to="/admin" className="hover:opacity-100 flex items-center gap-1" title="Admin">
+              <Shield className="h-3 w-3" /> Admin
+            </Link>
           </div>
         </div>
       </div>
